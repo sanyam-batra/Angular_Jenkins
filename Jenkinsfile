@@ -30,7 +30,7 @@ pipeline {
         
         stage ('Checkout') {
             steps {
-                git url: 'https://github.com/JFrog/project-examples.git'
+                git url: 'https://github.com/sanyam-batra/Angular_Jenkins.git'
                 }
         }
         

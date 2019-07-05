@@ -9,7 +9,7 @@ pipeline {
         string (name: 'ART_URL', defaultValue: 'http://localhost:8081/artifactory', description: 'Artifactory where artifacts will be deployed/resolved')
         string (name: 'ART_USER', defaultValue: 'admin', description: 'Artifactory user for deploy/resolve artifacts')
         string (name: 'ART_PASSWORD', defaultValue: 'password', description: 'Artifactory password for deploy/resolve artifacts')
-        string (name: 'ART_REPO', defaultValue: 'npm', description: 'Virtual Repository where artifacts will be deployed/resolved (Releases)')
+    //    string (name: 'ART_REPO', defaultValue: 'npm', description: 'Virtual Repository where artifacts will be deployed/resolved (Releases)')
     }
     
     stages {
@@ -20,9 +20,9 @@ pipeline {
                     rtNpm = Artifactory.newNpmBuild()
                     buildInfo = Artifactory.newBuildInfo()
                     // This variables should be PARAMETERIZED
-                    rtNpm.deployer repo: 'npm-local', server: rtServer
-                    rtNpm.resolver repo: 'npm-remote', server: rtServer
-                    rtNpm.deployer.deployArtifacts = false
+      //              rtNpm.deployer repo: 'npm-local', server: rtServer
+      //              rtNpm.resolver repo: 'npm-remote', server: rtServer
+      //              rtNpm.deployer.deployArtifacts = false
                     /*rtNpm.executablePath = (String) "$NODEJS_HOME/bin/npm"*/
                 }
             }

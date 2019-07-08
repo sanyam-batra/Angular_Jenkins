@@ -28,27 +28,27 @@ node {
     }
 
           stage ('Npm Install') {
-            steps {
+            
                 script{
                     rtNpm.install buildInfo: buildInfo
                 }
-            }
+            
         }
     
         stage ('Publish npm') {
-            steps {
+            
                 script {
                     rtNpm.publish buildInfo: buildInfo
                 }
-            }
+            
         }
     
         stage ('Publish build info') {
-            steps {
+            
                 script {
                     rtServer.publishBuildInfo buildInfo
                 }
-            }
+            
         }
     
    

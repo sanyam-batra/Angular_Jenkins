@@ -1,4 +1,10 @@
 node {
+    parameters {
+        string (name: 'ART_URL', defaultValue: 'http://localhost:8081/artifactory', description: 'Artifactory where artifacts will be deployed/resolved')
+        string (name: 'ART_USER', defaultValue: 'admin', description: 'Artifactory user for deploy/resolve artifacts')
+        string (name: 'ART_PASSWORD', defaultValue: 'password', description: 'Artifactory password for deploy/resolve artifacts')
+    //    string (name: 'ART_REPO', defaultValue: 'npm', description: 'Virtual Repository where artifacts will be deployed/resolved (Releases)')
+    }
     def server = Artifactory.server 'artifactory'
     def rtNpm = Artifactory.newNpmBuild()
     

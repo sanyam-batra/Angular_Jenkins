@@ -20,10 +20,10 @@ pipeline {
                     rtNpm = Artifactory.newNpmBuild()
                     buildInfo = Artifactory.newBuildInfo()
                     // This variables should be PARAMETERIZED
-      //              rtNpm.deployer repo: 'npm-local', server: rtServer
-      //              rtNpm.resolver repo: 'npm-remote', server: rtServer
-      //              rtNpm.deployer.deployArtifacts = false
-                    /*rtNpm.executablePath = (String) "$NODEJS_HOME/bin/npm"*/
+                    rtNpm.deployer repo: 'npm-local', server: rtServer
+                    rtNpm.resolver repo: 'npm-remote', server: rtServer
+                    rtNpm.deployer.deployArtifacts = false
+                    rtNpm.executablePath = (String) "$NODEJS_HOME/bin/npm"
                 }
             }
         }

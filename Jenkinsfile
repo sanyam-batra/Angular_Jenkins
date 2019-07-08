@@ -18,7 +18,8 @@ node {
     checkout scm
     }
     stage ('Artifactory configuration') {
-        jsHome = tool 'Node_js'
+        jsHome = tool 'Node_js', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+	bat "${jsHome}/bin/node -v"
         rtNpm.tool = 'Node_js' // Tool name from Jenkins configuration
         rtNpm.deployer repo: 'npm-local', server: server
         rtNpm.resolver repo: 'npm-remote', server: server

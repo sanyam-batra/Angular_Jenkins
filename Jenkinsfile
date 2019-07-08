@@ -10,15 +10,15 @@ node {
     
     def buildInfo
     def jsHome
-    jsp = tool name: 'NJS11'
+    jsp = tool name: 'NJS12'
     env.NODEJS_HOME = "${jsp}"
     
     stage ('checkout scm') {
     checkout scm
     }
     stage ('Artifactory configuration') {
-        jsHome = tool 'NJS11'
-        rtNpm.tool = 'NJS11' // Tool name from Jenkins configuration
+        jsHome = tool 'NJS12'
+        rtNpm.tool = 'NJS12' // Tool name from Jenkins configuration
         rtNpm.deployer repo: 'npm-local', server: server
         rtNpm.resolver repo: 'npm-remote', server: server
 	

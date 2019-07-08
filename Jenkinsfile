@@ -42,8 +42,7 @@ node {
         }*/
     
         stage ('Publish npm') {
-		jsHome = tool 'Node_js'
-	env.PATH="${env.PATH}:${jsHome}/bin"
+		
             
                 script {
                     rtNpm.publish buildInfo: buildInfo
@@ -52,8 +51,7 @@ node {
         }
     
         stage ('Publish build info') {
-            jsHome = tool 'Node_js'
-	env.PATH="${env.PATH}:${jsHome}/bin"
+            
                 script {
                     rtServer.publishBuildInfo buildInfo
                 }

@@ -23,7 +23,7 @@ pipeline {
                     rtNpm.deployer repo: 'npm-local', server: rtServer
                     rtNpm.resolver repo: 'npm-remote', server: rtServer
                     rtNpm.deployer.deployArtifacts = false
-                    rtNpm.executablePath = (String) "$NODEJS_HOME/bin/npm"
+                    //rtNpm.executablePath = (String) "$NODEJS_HOME/bin/npm"
                 }
             }
         }

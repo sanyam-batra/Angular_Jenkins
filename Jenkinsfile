@@ -27,8 +27,13 @@ node {
         buildInfo.env.capture = true
 	
     }
+	stage('Example') {
+      
+        sh 'npm config ls'
+      
+    }
 
-          stage ('Npm Install') {
+          /*stage ('Npm Install') {
             
                 script{
                     rtNpm.install buildInfo: buildInfo
@@ -50,7 +55,7 @@ node {
                     rtServer.publishBuildInfo buildInfo
                 }
             
-        }
+        }*/
     
    
 }

@@ -27,7 +27,10 @@ node {
         buildInfo.env.capture = true
 	
     }
-	
+	stage('Npm install')
+	{
+		sh 'npm install'
+	}
 
           /*stage ('Npm Install') {
             

@@ -12,14 +12,14 @@ node {
     def jsHome
     jsp = tool name: 'Node_js'
     env.NODEJS_HOME = "${jsp}"
-    env.PATH="${env.NODEJS_HOME};${env.PATH}"
+    
     
     stage ('checkout scm') {
     checkout scm
     }
     stage ('Artifactory configuration') {
-        jsHome = tool 'Node_js', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-	bat "${jsHome}/bin/node -v"
+        jsHome = tool 'Node_js'
+	env.PATH="${env.PATH}:${jsHome}/bin"
         rtNpm.tool = 'Node_js' // Tool name from Jenkins configuration
         rtNpm.deployer repo: 'npm-local', server: server
         rtNpm.resolver repo: 'npm-remote', server: server

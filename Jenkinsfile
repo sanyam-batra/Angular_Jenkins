@@ -38,7 +38,7 @@ node {
                     rtNpm.install buildInfo: buildInfo
                 }
             
-        }
+        }*/
     
         stage ('Publish npm') {
             
@@ -54,7 +54,7 @@ node {
                     rtServer.publishBuildInfo buildInfo
                 }
             
-        }*/
+        }
     
    
 }

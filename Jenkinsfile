@@ -1,4 +1,76 @@
-def rtServer, buildInfo, rtNpm
+node {
+    def server = Artifactory.server 'artifactory'
+    def rtNpm = Artifactory.newNpmBuild()
+    
+    def buildInfo
+    def jsHome
+    jsp = tool name: 'NJS11'
+    env.NODEJS_HOME = "${jsp}"
+    
+    stage ('checkout scm') {
+    checkout scm
+    }
+    stage ('Artifactory configuration') {
+        jsHome = tool 'NJS11'
+        rtNpm.tool = 'NJS11' // Tool name from Jenkins configuration
+        rtNpm.deployer releaseRepo: 'npm-local', server: server
+        rtNpm.resolver releaseRepo: 'npm-remote', server: server
+	
+        buildInfo = Artifactory.newBuildInfo()
+        buildInfo.env.capture = true
+	
+    }
+
+          stage ('Npm Install') {
+            steps {
+                script{
+                    rtNpm.install buildInfo: buildInfo
+                }
+            }
+        }
+    
+        stage ('Publish npm') {
+            steps {
+                script {
+                    rtNpm.publish buildInfo: buildInfo
+                }
+            }
+        }
+    
+        stage ('Publish build info') {
+            steps {
+                script {
+                    rtServer.publishBuildInfo buildInfo
+                }
+            }
+        }
+    
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*def rtServer, buildInfo, rtNpm
 
 pipeline {
     agent { label 'master' }
@@ -59,4 +131,4 @@ pipeline {
         }
         
     }
-}
+}*/

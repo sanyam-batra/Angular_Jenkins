@@ -29,7 +29,7 @@ node {
     }
 	stage('Npm install')
 	{
-		sh 'npm install'
+		bat 'npm install'
 	}
 
           /*stage ('Npm Install') {

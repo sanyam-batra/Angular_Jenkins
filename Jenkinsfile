@@ -19,8 +19,8 @@ node {
     stage ('Artifactory configuration') {
         jsHome = tool 'NJS11'
         rtNpm.tool = 'NJS11' // Tool name from Jenkins configuration
-        rtNpm.deployer releaseRepo: 'npm-local', server: server
-        rtNpm.resolver releaseRepo: 'npm-remote', server: server
+        rtNpm.deployer repo: 'npm-local', server: server
+        rtNpm.resolver repo: 'npm-remote', server: server
 	
         buildInfo = Artifactory.newBuildInfo()
         buildInfo.env.capture = true

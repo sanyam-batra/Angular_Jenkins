@@ -27,11 +27,7 @@ node {
         buildInfo.env.capture = true
 	
     }
-	stage('Example') {
-      
-        sh 'npm config ls'
-      
-    }
+	
 
           /*stage ('Npm Install') {
             

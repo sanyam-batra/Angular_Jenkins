@@ -37,7 +37,7 @@ pipeline {
         stage ('Npm Install') {
             steps {
                 script{
-                    rtNpm.install buildInfo: buildInfo
+                    rtNpm.install buildInfo: buildInfo, path:"https://github.com/sanyam-batra/Angular_Jenkins.git"
                 }
             }
         }
@@ -45,7 +45,7 @@ pipeline {
         stage ('Publish npm') {
             steps {
                 script {
-                    rtNpm.publish buildInfo: buildInfo
+                    rtNpm.publish buildInfo: buildInfo, path:"https://github.com/sanyam-batra/Angular_Jenkins.git"
                 }
             }
         }

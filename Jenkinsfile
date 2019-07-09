@@ -29,15 +29,24 @@ node {
 	
     }
 	
+	stage('info') {
+      env.NODEJS_HOME = "${tool Node_js}"
+      env.PATH="${env.NODEJS_HOME};${env.PATH}"
+      echo ${env.PATH}
+      bat 'node -version'
+   }
+	
+	
+	
 
-          stage ('Npm Install') {
+          /*stage ('Npm Install') {
 	  
       nodejs(nodeJSInstallationName: 'Node_js', configId: null) {
           script{
                     rtNpm.install buildInfo: buildInfo
                 }
       }
-    }
+    }*/
     
         /*stage ('Publish npm') {
 		

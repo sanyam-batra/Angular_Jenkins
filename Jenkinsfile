@@ -30,7 +30,7 @@ node {
     }
 	stage('Npm info') {
 		script{
-			echo ${env.PATH}
+			
 			bat 'node -version'
 		}
 	}

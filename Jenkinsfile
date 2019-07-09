@@ -28,20 +28,16 @@ node {
         buildInfo.env.capture = true
 	
     }
-	stage('Npm info') {
-		script{
-			
-			bat 'node -version'
-		}
-	}
+	
 
-          /*stage ('Npm Install') {
-            
-                script{
+          stage ('Npm Install') {
+	  
+      nodejs(nodeJSInstallationName: 'Node_js', configId: null) {
+          script{
                     rtNpm.install buildInfo: buildInfo
                 }
-            
-        }*/
+      }
+    }
     
         /*stage ('Publish npm') {
 		

@@ -11,8 +11,8 @@ node {
     def buildInfo
     def jsHome
     jsp = tool name: 'Node_js'
-    env.NODEJS_HOME = "${jsp}"
-    env.PATH="${env.NODEJS_HOME};${env.PATH}"
+    /*env.NODEJS_HOME = "${jsp}"
+    env.PATH="${env.NODEJS_HOME};${env.PATH}"*/
     
     stage ('checkout scm') {
     checkout scm

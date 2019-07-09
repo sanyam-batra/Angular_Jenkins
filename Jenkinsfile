@@ -33,12 +33,13 @@ node {
 
           stage ('Npm Install') {
 	  
-      nodejs(nodeJSInstallationName: 'Node_js', configId: null) {
-          script{
-                    rtNpm.install buildInfo: buildInfo
-                }
+      nodejs('Node_js') {
+    rtNpm.install buildInfo: buildInfo
+}
+                    
+                
       }
-    }
+    
     
         /*stage ('Publish npm') {
 		

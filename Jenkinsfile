@@ -19,7 +19,7 @@ node {
     }
     stage ('Artifactory configuration') {
         jsHome = tool 'Node_js'
-	env.PATH="${env.PATH}:${jsHome}/bin"
+	
         rtNpm.tool = 'Node_js' // Tool name from Jenkins configuration
         rtNpm.deployer repo: 'npm-local', server: server
         rtNpm.resolver repo: 'npm-remote', server: server
@@ -28,9 +28,12 @@ node {
         buildInfo.env.capture = true
 	
     }
-	stage('Npm install')
+	stage('Npm info')
 	{
-		bat 'npm install'
+		env.NODEJS_HOME = "${tool Node_js}"
+		env.PATH="${env.NODEJS_HOME};${env.PATH}"
+		echo ${env.PATH}
+		bat 'node -version'
 	}
 
           /*stage ('Npm Install') {
@@ -41,7 +44,7 @@ node {
             
         }*/
     
-        stage ('Publish npm') {
+        /*stage ('Publish npm') {
 		
             
                 script {
@@ -56,7 +59,7 @@ node {
                     rtServer.publishBuildInfo buildInfo
                 }
             
-        }
+        }*/
     
    
 }

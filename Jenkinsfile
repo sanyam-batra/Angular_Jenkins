@@ -28,16 +28,9 @@ node {
         buildInfo.env.capture = true
 	
     }
-	
 	stage('info') {
-      env.NODEJS_HOME = "${tool Node_js}"
-      env.PATH="${env.NODEJS_HOME};${env.PATH}"
-      echo ${env.PATH}
-      bat 'node -version'
-   }
-	
-	
-	
+		sh 'env'
+	}
 
           /*stage ('Npm Install') {
 	  

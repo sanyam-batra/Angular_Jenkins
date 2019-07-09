@@ -28,7 +28,12 @@ node {
         buildInfo.env.capture = true
 	
     }
-	
+	stage('Npm info') {
+		script{
+			echo ${env.PATH}
+			bat 'node -version'
+		}
+	}
 
           /*stage ('Npm Install') {
             

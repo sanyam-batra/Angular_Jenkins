@@ -29,8 +29,9 @@ node {
 	
     }
 	stage('info') {
-		sh 'env'
+		echo ${env.PATH}
 	}
+	
 
           /*stage ('Npm Install') {
 	  

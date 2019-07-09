@@ -30,7 +30,7 @@ node {
     }
 	stage('Npm info')
 	{
-		env.NODEJS_HOME = "${tool Node_js}"
+		
 		env.PATH="${env.NODEJS_HOME};${env.PATH}"
 		echo ${env.PATH}
 		bat 'node -version'

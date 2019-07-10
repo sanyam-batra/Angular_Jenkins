@@ -32,9 +32,9 @@ node {
 
           stage ('Npm Install') {
 	  
-      nodejs('Node_js') {
+      
     rtNpm.install buildInfo: buildInfo
-}
+
                     
                 
       }

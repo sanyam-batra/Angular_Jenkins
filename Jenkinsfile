@@ -11,7 +11,7 @@ node {
     def buildInfo
     def jsHome
     jsp = tool name: 'Node_js'
-\
+
     
     stage ('checkout scm') {
     checkout scm
